@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jase</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <div class="phone-container">
+        <div id="pantalla1" class="card-screen active">
+            <h1>¡Feliz cumple doña enojona💗 !</h1>
+            <p class="instruction">🫶Se te quiere mucho 🫶</p>
+            <div class="emoji-illustration">🎁</div>
+            <audio id="miAudio" src="allavoy.mp3"></audio>
+
+            <button class="btn-despliega" onclick="document.getElementById('miAudio').play(); irAPantalla(2)">
+                Despliega con una sonrisa
+
+            </button>
+
+        </div>
+
+
+
+        <div id="pantalla2" class="card-screen">
+            <h1 class="FELIZ">🎂Feliz Cumple🎂</h1>
+            <div class="emoji-illustration2">💗🍩</div>
+            <div class="emoji-illustration2">🎀</div>
+            <button class="btn-despliega" onclick="irApantalla(3)">Dentro hay algo my especial para ti</button>
+        </div>
+
+
+        <div id="pantalla3" class="card-screen ">
+
+            <p>!Te quiero mucho jasee !✨</p>
+            <p>Hoy es un día muy especial, ya que en este día cumple años la chica que más arriba vive en el mundo y nunca baja. Y aunque sé que a veces te enojas conmigo (casi siempre)jajajajaj, pero igual yo sé que siempre volvemos a estar bien porque eso hacen los amigos, es algo inevitable; pero créeme que igual te quiero mucho y ahí vamos a llegar a viejitos subiéndonos el ego y llegando cada día más alto, jajaja. Te deseo un muy feliz cumpleaños lleno de bendiciones y que tus próximos años sean los mejores de tu vida, que puedas disfrutar cada momento y cada etapa de tu vida tal y como quieres y puedas lograr todas tus metas. Y yo sé que sí lo harás porque tienes disposición y deseos de superación, y cuando vas de la mano de Dios todas las cosas te salen a bien. ¡Te quiero mucho! Happy Birthday 💗🌷 </p>
+
+            <button class="btn-despliega" onclick="irApantalla(1)">Revelar👌</button>
+
+        </div>
+
+        <div id="pantalla3" class="card-screen ">
+            <h1>✨Te quiero✨</h1>
+        <img class="imagen-bonita" src="subir2.jpeg" alt="">
+            <button class="btn-despliega" onclick="irApantalla(1)">Vuelve al inicio</button>
+
+        </div>
+    </div>
+
+    <script>
+        alert("SORPRESA🎀")
+        // 1. Buscamos todas las pantallas y los botones dentro de la tarjeta
+        const pantallas = document.querySelectorAll('.card-screen');
+        const botones = document.querySelectorAll('.btn-despliega');
+
+        // 2. Creamos una variable para saber en qué pantalla estamos (0 es la primera)
+        let pantallaActual = 0;
+
+        // 3. Le asignamos la función a cada botón para cambiar de pantalla
+        botones.forEach((boton) => {
+            boton.addEventListener('click', () => {
+
+
+                // Quitamos la clase 'active' de la pantalla donde estamos para ocultarla
+                pantallas[pantallaActual].classList.remove('active');
+
+                // Avanzamos a la siguiente pantalla
+                pantallaActual = pantallaActual + 1;
+
+                // Si llegamos al final de las pantallas (después de la pantalla 3), volvemos a la primera
+                if (pantallaActual >= pantallas.length) {
+                    pantallaActual = 0;
+                }
+
+                // Le agregamos la clase 'active' a la nueva pantalla para que se muestre
+                pantallas[pantallaActual].classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
